@@ -40,17 +40,17 @@ public class HomeScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        test_button = new javax.swing.JButton();
+        testButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize()
         );
         setResizable(false);
 
-        test_button.setText("Press Me!");
-        test_button.addActionListener(new java.awt.event.ActionListener() {
+        testButton.setText("Press Me!");
+        testButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                test_buttonActionPerformed(evt);
+                testButtonActionPerformed(evt);
             }
         });
 
@@ -60,24 +60,24 @@ public class HomeScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(1826, Short.MAX_VALUE)
-                .addComponent(test_button)
+                .addComponent(testButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(test_button)
+                .addComponent(testButton)
                 .addContainerGap(1051, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void test_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_test_buttonActionPerformed
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
         System.out.println("Button pushed!");
         // add more functionality here
-    }//GEN-LAST:event_test_buttonActionPerformed
+    }//GEN-LAST:event_testButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +116,6 @@ public class HomeScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton test_button;
+    private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
 }
