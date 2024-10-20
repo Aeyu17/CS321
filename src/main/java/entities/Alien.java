@@ -1,7 +1,7 @@
-package com.kosmickong.entities;
+package entities;
 
-import com.kosmickong.components.*;
-import com.kosmickong.strategies.AlienMovementStrategy;
+import components.*;
+import strategies.AlienMovementStrategy;
 
 /**
  * Represents the alien enemy in the game.

@@ -1,15 +1,22 @@
 package game;
 
 import java.awt.event.KeyEvent;
+import utilities.KeyInput;
 
 /**
  * Captures and processes player input.
  */
 public class InputHandler {
-    private boolean leftPressed;
-    private boolean rightPressed;
-    private boolean upPressed;
-    private boolean spacePressed;
+
+    private final KeyInput keyInput;  // Reference to KeyInput
+
+    /**
+     * Constructor for InputHandler
+     * @param keyInput the KeyInput instance that tracks key presses
+     */
+    public InputHandler(KeyInput keyInput) {
+        this.keyInput = keyInput;
+    }
 
     /**
      * Checks if a specific key is currently pressed.
@@ -18,19 +25,38 @@ public class InputHandler {
      * @return True if the key is pressed, false otherwise.
      */
     public boolean isKeyPressed(int keyCode) {
-        return switch (keyCode) {
-            case KeyEvent.VK_LEFT, KeyEvent.VK_A -> leftPressed;
-            case KeyEvent.VK_RIGHT, KeyEvent.VK_D -> rightPressed;
-            case KeyEvent.VK_UP, KeyEvent.VK_W -> upPressed;
-            case KeyEvent.VK_SPACE -> spacePressed;
-            default -> false;
-        }; 
+        return keyInput.isKeyPressed(keyCode);
     }
 
     /**
-     * Updates the input states.
+     * Checks if left movement keys are pressed.
+     * @return True if any of the left movement keys are pressed, false otherwise.
      */
-    public void update() {
-        // Method body intentionally left empty
+    public boolean isLeftPressed() {
+        return keyInput.isKeyPressed(KeyEvent.VK_LEFT) || keyInput.isKeyPressed(KeyEvent.VK_A);
+    }
+
+    /**
+     * Checks if right movement keys are pressed.
+     * @return True if any of the right movement keys are pressed, false otherwise.
+     */
+    public boolean isRightPressed() {
+        return keyInput.isKeyPressed(KeyEvent.VK_RIGHT) || keyInput.isKeyPressed(KeyEvent.VK_D);
+    }
+
+    /**
+     * Checks if up movement keys are pressed.
+     * @return True if any of the up movement keys are pressed, false otherwise.
+     */
+    public boolean isUpPressed() {
+        return keyInput.isKeyPressed(KeyEvent.VK_UP) || keyInput.isKeyPressed(KeyEvent.VK_W);
+    }
+
+    /**
+     * Checks if space key is pressed (e.g., for jumping).
+     * @return True if space is pressed, false otherwise.
+     */
+    public boolean isSpacePressed() {
+        return keyInput.isKeyPressed(KeyEvent.VK_SPACE);
     }
 }

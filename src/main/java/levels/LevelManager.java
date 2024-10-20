@@ -1,4 +1,4 @@
-package com.kosmickong.levels;
+package levels;
 
 
 /**

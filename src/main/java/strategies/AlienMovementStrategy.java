@@ -1,6 +1,6 @@
-package com.kosmickong.strategies;
+package strategies;
 
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 
 /**
  * Controls the alien's AI movement patterns.

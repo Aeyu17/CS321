@@ -1,6 +1,6 @@
-package com.kosmickong.entities;
+package entities;
 
-import com.kosmickong.components.*;
+import components.*;
 
 /**
  * Represents a jump pad that affects entities' movement.

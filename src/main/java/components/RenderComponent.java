@@ -1,7 +1,7 @@
-package com.kosmickong.components;
+package components;
 
 import java.awt.Graphics;
-import com.kosmickong.utilities.Sprite;
+import utilities.Sprite;
 
 /**
  * Handles rendering of the entity.
@@ -49,7 +49,7 @@ public class RenderComponent implements Component {
      * @param entity The parent entity.
      */
     @Override
-    public void setEntity(com.kosmickong.entities.Entity entity) {
+    public void setEntity(entities.Entity entity) {
         // Method body intentionally left empty
     }
 }
