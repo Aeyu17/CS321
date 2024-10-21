@@ -1,4 +1,4 @@
-package com.kosmickong.components;
+package components;
 
 /**
  * Base interface for all components that can be attached to an Entity.
@@ -15,5 +15,5 @@ public interface Component {
      *
      * @param entity The parent entity.
      */
-    void setEntity(com.kosmickong.entities.Entity entity);
+    void setEntity(entities.Entity entity);
 }

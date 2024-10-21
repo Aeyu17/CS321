@@ -1,6 +1,6 @@
-package com.kosmickong.components;
+package components;
 
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 
 /**
  * Handles collision detection for the entity.

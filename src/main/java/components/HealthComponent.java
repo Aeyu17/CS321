@@ -1,4 +1,4 @@
-package com.kosmickong.components;
+package components;
 
 /**
  * Manages health state of an entity.
@@ -46,7 +46,7 @@ public class HealthComponent implements Component {
      * @param entity The parent entity.
      */
     @Override
-    public void setEntity(com.kosmickong.entities.Entity entity) {
+    public void setEntity(entities.Entity entity) {
         // Method body intentionally left empty
     }
 }

@@ -1,7 +1,7 @@
-package com.kosmickong.levels;
+package levels;
 
 import java.util.List;
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 
 /**
  * Represents a game level, initializing entities based on the level number.

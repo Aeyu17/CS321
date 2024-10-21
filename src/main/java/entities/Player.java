@@ -1,7 +1,7 @@
-package com.kosmickong.entities;
+package entities;
 
-import com.kosmickong.components.*;
-import com.kosmickong.strategies.PlayerMovementStrategy;
+import components.*;
+import strategies.PlayerMovementStrategy;
 
 /**
  * Represents the player character in the game.

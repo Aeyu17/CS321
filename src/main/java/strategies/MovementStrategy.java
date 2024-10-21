@@ -1,6 +1,6 @@
-package com.kosmickong.strategies;
+package strategies;
 
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 
 /**
  * Interface defining the movement behavior of entities.

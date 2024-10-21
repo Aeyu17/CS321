@@ -6,7 +6,7 @@ package displays;
 
 import java.awt.Toolkit;
 import java.awt.Dimension;
-
+import utilities.KeyInput;
 /**
  *
  * @author Jamie Roberson
@@ -16,8 +16,13 @@ public class HomeScreen extends javax.swing.JFrame {
     /**
      * Creates new form home_screen
      */
-    public HomeScreen() {
+    public HomeScreen(KeyInput keyinput) {
         initComponents();
+        addKeyListener(keyinput);
+        
+        // make sure JFrame is focusable and can capture events
+        setFocusable(true);
+        requestFocusInWindow(); // request explicit focus
         
         /* 
         initComponents is a black box function from NetBeans' own generated code,
@@ -110,7 +115,7 @@ public class HomeScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeScreen().setVisible(true);
+                new HomeScreen(new KeyInput()).setVisible(true);
             }
         });
     }

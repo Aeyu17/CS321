@@ -1,7 +1,7 @@
-package com.kosmickong.entities;
+package entities;
 
-import com.kosmickong.components.*;
-import com.kosmickong.strategies.PlasmaBallMovementStrategy;
+import components.*;
+import strategies.PlasmaBallMovementStrategy;
 
 /**
  * Represents a plasma ball projectile thrown by the alien.

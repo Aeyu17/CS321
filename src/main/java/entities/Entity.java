@@ -1,8 +1,8 @@
-package com.kosmickong.entities;
+package entities;
 
 import java.awt.Graphics;
-import com.kosmickong.components.Component;
-import com.kosmickong.strategies.MovementStrategy;
+import components.Component;
+import strategies.MovementStrategy;
 
 /**
  * Abstract base class for all game entities.
