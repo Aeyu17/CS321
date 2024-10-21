@@ -4,6 +4,7 @@
  */
 package displays;
 
+import game.GamePanel;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import utilities.KeyInput;
@@ -12,13 +13,19 @@ import utilities.KeyInput;
  * @author Jamie Roberson
  */
 public class HomeScreen extends javax.swing.JFrame {
-
+    GamePanel gamePanel;
     /**
      * Creates new form home_screen
      */
     public HomeScreen(KeyInput keyinput) {
         initComponents();
         addKeyListener(keyinput);
+        
+        // create game panel which hold the entities 
+        gamePanel = new GamePanel();
+        this.add(gamePanel);
+        gamePanel.setBounds(0,0,getWidth(),getHeight());
+        gamePanel.setVisible(true);
         
         // make sure JFrame is focusable and can capture events
         setFocusable(true);
@@ -84,6 +91,13 @@ public class HomeScreen extends javax.swing.JFrame {
         // add more functionality here
     }//GEN-LAST:event_testButtonActionPerformed
 
+    /**
+     * Returns the game panel for calling its methods
+     * @return gamePanel
+     */
+    public GamePanel getGamePanel() {
+        return gamePanel;
+    }
     /**
      * @param args the command line arguments
      */

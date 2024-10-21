@@ -20,13 +20,17 @@ public abstract class Entity {
      */
     private List<Component> components;
     private MovementStrategy movementStrategy;
+    private static List<Entity> allEntities = new ArrayList<>();
 
     public Entity() {
         components = new ArrayList<>();
+        allEntities.add(this);
     }
 
 
-
+    public static List<Entity> getEntities() {
+        return allEntities;
+    }
 
     // Adds a component to the entity.
     //@param component The component to add.   
@@ -48,7 +52,6 @@ public abstract class Entity {
             if (componentClass.isInstance(component)) {
                 return componentClass.cast(component);
             }
-            else{return null;}
         }
         return null; // Return null if the component is not found
     }
@@ -87,7 +90,7 @@ public abstract class Entity {
 
     //  Updates all components of the entity.
     public void update() {
-        // Method body intentionally left empty
+        
         for (Component component : components) {
             component.update(); // Update each component
         }

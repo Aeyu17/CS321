@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import utilities.Sprite;
 import components.MovementComponent;
 import entities.Entity;
+import java.awt.Color;
 import java.awt.Point;
 import utilities.Sprite;
 
@@ -35,7 +36,7 @@ public class RenderComponent implements Component {
     }
 
     /**
-     * Renders the entity on the screen based on the movementcomponent's position
+     * Renders the entity on the screen based on the entity's position
      *
      * @param graphics The graphics context to render on.
      */

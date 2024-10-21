@@ -2,7 +2,6 @@ package components;
 
 import java.awt.Point;
 import entities.Entity;
-import strategies.MovementStrategy;
 
 /**
  * Manages position and velocity of an entity.
@@ -11,19 +10,10 @@ public class MovementComponent implements Component {
 
     private Point position;
     private Entity parentEntity;
-    private MovementStrategy movementStrategy;
     
             
     public MovementComponent(){
         this.position = new Point(0,0);
-    }
-    
-    /**
-     * Sets the movement strategy for this entity
-     * @param movementstrategy 
-     */
-    public void setMovementStrategy(MovementStrategy movementstrategy) {
-        this.movementStrategy = movementstrategy;
     }
     
     /**
@@ -50,8 +40,8 @@ public class MovementComponent implements Component {
      */
     @Override
     public void update() {
-        if(movementStrategy!=null) {
-            movementStrategy.move(parentEntity);
+        if(parentEntity.getMovementStrategy()!= null) {
+            parentEntity.getMovementStrategy().move(parentEntity);
         }
     }
 

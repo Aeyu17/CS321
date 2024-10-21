@@ -3,6 +3,7 @@ package entities;
 import components.*;
 import strategies.PlayerMovementStrategy;
 import entities.Entity;
+import utilities.Sprite;
 
 /**
  * Represents the player character in the game.
@@ -19,12 +20,22 @@ public class Player extends Entity {
      // Constructs a new Player entity with necessary components and movement strategy.
 
     public Player() {
-        // Constructor body intentionally left empty
-        // rovementComponent to handle player movement
-        this.addComponent(new MovementComponent());
-
-        // renderComponent to handle how the player is drawn on the screen
-        this.addComponent(new RenderComponent());
+        
+        PlayerMovementStrategy playerMovement;
+        // set player's sprite upon creation
+        Sprite playerSprite = new Sprite();
+        playerSprite.loadImage("/player_bigger.png");
+        // assign render component to sprite
+        RenderComponent renderComponent = new RenderComponent();
+        renderComponent.setSprite(playerSprite);
+        
+        //add render component to player
+        this.addComponent(renderComponent);
+        
+        
+        // movementComponent to handle player movement
+        MovementComponent movementComponent = new MovementComponent();
+        this.addComponent(movementComponent);
 
         // healthComponent to manage the player's health
        // this.addComponent(new HealthComponent());

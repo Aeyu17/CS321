@@ -1,12 +1,27 @@
 package utilities;
 
 import java.awt.Image;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 /**
  * Represents graphical sprites for rendering entities.
  */
 public class Sprite {
     private Image image;
+    
+    /**
+     * Loads and sets the image from a file path
+     * @param path path to image file
+     */
+    public void loadImage(String path) {
+        try {
+            this.image = ImageIO.read(getClass().getResource(path));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    
     /**
      * Gets the image associated with the sprite.
      *
