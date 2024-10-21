@@ -1,6 +1,6 @@
-package com.kosmickong.strategies;
+package strategies;
 
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 
 /**
  * Defines the movement trajectory of plasma balls.

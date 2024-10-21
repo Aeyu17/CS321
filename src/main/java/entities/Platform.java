@@ -1,6 +1,6 @@
-package com.kosmickong.entities;
+package entities;
 
-import com.kosmickong.components.*;
+import components.*;
 
 /**
  * Represents a platform in the game environment.

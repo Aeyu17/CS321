@@ -1,6 +1,6 @@
-package com.kosmickong.utilities;
+package utilities;
 
-import com.kosmickong.entities.Entity;
+import entities.Entity;
 import java.awt.Rectangle;
 
 /**

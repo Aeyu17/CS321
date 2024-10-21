@@ -1,31 +1,21 @@
-package com.kosmickong.components;
+package components;
 
 import java.awt.Point;
+import entities.Entity;
 
 /**
  * Manages position and velocity of an entity.
  */
 public class MovementComponent implements Component {
 
-    /**
-     * Sets the velocity of the entity.
-     *
-     * @param dx The velocity in the x-direction.
-     * @param dy The velocity in the y-direction.
-     */
-    public void setVelocity(int dx, int dy) {
-        // Method body intentionally left empty
+    private Point position;
+    private Entity parentEntity;
+    
+            
+    public MovementComponent(){
+        this.position = new Point(0,0);
     }
-
-    /**
-     * Gets the current velocity of the entity.
-     *
-     * @return The velocity as a Point object.
-     */
-    public Point getVelocity() {
-        return null; // Placeholder return
-    }
-
+    
     /**
      * Sets the position of the entity.
      *
@@ -33,7 +23,7 @@ public class MovementComponent implements Component {
      * @param y The y-coordinate.
      */
     public void setPosition(int x, int y) {
-        // Method body intentionally left empty
+        this.position = new Point(x,y);
     }
 
     /**
@@ -42,15 +32,17 @@ public class MovementComponent implements Component {
      * @return The position as a Point object.
      */
     public Point getPosition() {
-        return null; // Placeholder return
+        return this.position;
     }
 
     /**
-     * Updates the position based on velocity.
+     * Updates the position by delegating movement to current strategy
      */
     @Override
     public void update() {
-        // Method body intentionally left empty
+        if(parentEntity.getMovementStrategy()!= null) {
+            parentEntity.getMovementStrategy().move(parentEntity);
+        }
     }
 
     /**
@@ -59,7 +51,7 @@ public class MovementComponent implements Component {
      * @param entity The parent entity.
      */
     @Override
-    public void setEntity(com.kosmickong.entities.Entity entity) {
-        // Method body intentionally left empty
+    public void setEntity(Entity entity) {
+        this.parentEntity = entity;
     }
 }

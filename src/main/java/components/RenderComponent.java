@@ -1,20 +1,29 @@
-package com.kosmickong.components;
+package components;
 
 import java.awt.Graphics;
-import com.kosmickong.utilities.Sprite;
+import utilities.Sprite;
+import components.MovementComponent;
+import entities.Entity;
+import java.awt.Color;
+import java.awt.Point;
+import utilities.Sprite;
 
 /**
  * Handles rendering of the entity.
  */
 public class RenderComponent implements Component {
 
+    private Entity parentEntity;
+    private Sprite spriteGraphic;
+    
+    
     /**
      * Sets the sprite for rendering.
      *
      * @param sprite The sprite to set.
      */
     public void setSprite(Sprite sprite) {
-        // Method body intentionally left empty
+        this.spriteGraphic = sprite;
     }
 
     /**
@@ -23,16 +32,23 @@ public class RenderComponent implements Component {
      * @return The sprite.
      */
     public Sprite getSprite() {
-        return null; // Placeholder return
+        return this.spriteGraphic;
     }
 
     /**
-     * Renders the entity on the screen.
+     * Renders the entity on the screen based on the entity's position
      *
      * @param graphics The graphics context to render on.
      */
     public void render(Graphics graphics) {
-        // Method body intentionally left empty
+        if(spriteGraphic!= null && parentEntity!=null){
+            MovementComponent movementComponent = parentEntity.getComponent(MovementComponent.class);
+            if(movementComponent!=null){
+                Point position = movementComponent.getPosition();
+                graphics.drawImage(spriteGraphic.getImage(),position.x,position.y,null);
+            }
+            
+        }
     }
 
     /**
@@ -40,7 +56,7 @@ public class RenderComponent implements Component {
      */
     @Override
     public void update() {
-        // Method body intentionally left empty
+        // Will be used for updating animation frames if we get to that
     }
 
     /**
@@ -49,7 +65,7 @@ public class RenderComponent implements Component {
      * @param entity The parent entity.
      */
     @Override
-    public void setEntity(com.kosmickong.entities.Entity entity) {
-        // Method body intentionally left empty
+    public void setEntity(Entity entity) {
+        this.parentEntity = entity;
     }
 }
