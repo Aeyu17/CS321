@@ -25,14 +25,17 @@ public class KosmicKong {
             public void run() {
                 HomeScreen homescreen = new HomeScreen(keyinput);
                 homescreen.setVisible(true);
-                homescreen.requestFocusInWindow();
+                homescreen.requestFocusInWindow(); 
                 
             }
         });
         
         System.out.println("GUI is running.");
         
+        // simulate player movement
         int playerX = 0;
+        
+        // main game loop
         while(true){
             if(inputhandler.isLeftPressed()){
                 playerX-=1;
@@ -43,6 +46,7 @@ public class KosmicKong {
                 System.out.println("player moves right to: " + playerX);
             }
             
+            // sleep to maintain 60 fps
             try{
                 Thread.sleep(16);
             } catch (InterruptedException e){

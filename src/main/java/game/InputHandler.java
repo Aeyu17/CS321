@@ -53,7 +53,7 @@ public class InputHandler {
     }
 
     /**
-     * Checks if space key is pressed (e.g., for jumping).
+     * Checks if space key is pressed (for jumping).
      * @return True if space is pressed, false otherwise.
      */
     public boolean isSpacePressed() {

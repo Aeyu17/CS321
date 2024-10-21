@@ -19,7 +19,10 @@ public class HomeScreen extends javax.swing.JFrame {
     public HomeScreen(KeyInput keyinput) {
         initComponents();
         addKeyListener(keyinput);
-        requestFocusInWindow();
+        
+        // make sure JFrame is focusable and can capture events
+        setFocusable(true);
+        requestFocusInWindow(); // request explicit focus
         
         /* 
         initComponents is a black box function from NetBeans' own generated code,
