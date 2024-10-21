@@ -21,7 +21,7 @@ public class KosmicKong {
         KeyInput keyinput = new KeyInput();
         InputHandler inputhandler = new InputHandler(keyinput);
         Entity player = new Player();
-        player.getComponent(MovementComponent.class).setInputHandler(inputhandler);
+        
         
         // runs GUI in an async queue
         java.awt.EventQueue.invokeLater(new Runnable() {

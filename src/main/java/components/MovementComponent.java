@@ -2,8 +2,7 @@ package components;
 
 import java.awt.Point;
 import entities.Entity;
-import game.InputHandler;
-import utilities.KeyInput;
+import strategies.MovementStrategy;
 
 /**
  * Manages position and velocity of an entity.
@@ -11,20 +10,20 @@ import utilities.KeyInput;
 public class MovementComponent implements Component {
 
     private Point position;
-    private final int velocity = 5;
     private Entity parentEntity;
-    private InputHandler inputHandler;
+    private MovementStrategy movementStrategy;
+    
             
     public MovementComponent(){
         this.position = new Point(0,0);
     }
     
     /**
-     * Sets the InputHandler for handling key inputs
+     * Sets the movement strategy for this entity
+     * @param movementstrategy 
      */
-    
-    public void setInputHandler(InputHandler inputhandler){
-        this.inputHandler = inputhandler;
+    public void setMovementStrategy(MovementStrategy movementstrategy) {
+        this.movementStrategy = movementstrategy;
     }
     
     /**
@@ -47,19 +46,13 @@ public class MovementComponent implements Component {
     }
 
     /**
-     * Updates the position based on velocity.
+     * Updates the position by delegating movement to current strategy
      */
     @Override
     public void update() {
-        if(inputHandler.isLeftPressed()){
-            this.position.x-=velocity;
-            System.out.println("X: " + position.x);
+        if(movementStrategy!=null) {
+            movementStrategy.move(parentEntity);
         }
-        if(inputHandler.isRightPressed()){
-            this.position.x+=velocity;
-            System.out.println("X: " + position.x);
-        }
-        // still need to add case for space bar but will require collision detection
     }
 
     /**
