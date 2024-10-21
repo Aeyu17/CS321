@@ -1,5 +1,6 @@
 package components;
 
+import entities.Entity;
 /**
  * Base interface for all components that can be attached to an Entity.
  */
@@ -15,5 +16,5 @@ public interface Component {
      *
      * @param entity The parent entity.
      */
-    void setEntity(entities.Entity entity);
+    void setEntity(Entity entity);
 }

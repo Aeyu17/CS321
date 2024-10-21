@@ -7,6 +7,8 @@ package game;
 import displays.HomeScreen;
 import game.InputHandler;
 import utilities.KeyInput;
+import entities.*;
+import components.*;
 /**
  *
  * @author Jamie Roberson
@@ -18,7 +20,8 @@ public class KosmicKong {
         
         KeyInput keyinput = new KeyInput();
         InputHandler inputhandler = new InputHandler(keyinput);
-        
+        Entity player = new Player();
+        player.getComponent(MovementComponent.class).setInputHandler(inputhandler);
         
         // runs GUI in an async queue
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -37,14 +40,7 @@ public class KosmicKong {
         
         // main game loop
         while(true){
-            if(inputhandler.isLeftPressed()){
-                playerX-=1;
-                System.out.println("player moves left to: " + playerX);
-            }
-            if(inputhandler.isRightPressed()){
-                playerX+=1;
-                System.out.println("player moves right to: " + playerX);
-            }
+            player.update();
             
             // sleep to maintain 60 fps
             try{

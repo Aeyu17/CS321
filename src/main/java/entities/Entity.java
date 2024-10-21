@@ -1,12 +1,16 @@
 package entities;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
 import components.Component;
+import components.RenderComponent;
 import strategies.MovementStrategy;
 
 /**
  * Abstract base class for all game entities.
  */
+
 public abstract class Entity {
 
     /**
@@ -14,8 +18,22 @@ public abstract class Entity {
      *
      * @param component The component to add.
      */
+    private List<Component> components;
+    private MovementStrategy movementStrategy;
+
+    public Entity() {
+        components = new ArrayList<>();
+    }
+
+
+
+
+    // Adds a component to the entity.
+    //@param component The component to add.   
     public void addComponent(Component component) {
         // Method body intentionally left empty
+        components.add(component);
+        component.setEntity(this); // Set this entity to the component
     }
 
     /**
@@ -23,10 +41,16 @@ public abstract class Entity {
      *
      * @param <T>            The type of the component.
      * @param componentClass The class of the component to retrieve.
-     * @return The component instance.
+     * @return The component instance or null if not found.
      */
     public <T extends Component> T getComponent(Class<T> componentClass) {
-        return null; // Placeholder return
+        for (Component component : components) {
+            if (componentClass.isInstance(component)) {
+                return componentClass.cast(component);
+            }
+            else{return null;}
+        }
+        return null; // Return null if the component is not found
     }
 
     /**
@@ -34,8 +58,13 @@ public abstract class Entity {
      *
      * @param strategy The movement strategy to set.
      */
+
+
+     //Sets the movement strategy for the entity.
+     // @param strategy The movement strategy to set.  
     public void setMovementStrategy(MovementStrategy strategy) {
         // Method body intentionally left empty
+        this.movementStrategy = strategy;
     }
 
     /**
@@ -43,15 +72,28 @@ public abstract class Entity {
      *
      * @return The movement strategy.
      */
+
+
+    //  Gets the current movement strategy of the entity.
+    // @return The movement strategy. 
     public MovementStrategy getMovementStrategy() {
-        return null; // Placeholder return
+        return movementStrategy;
     }
 
     /**
      * Updates all components of the entity.
      */
+
+
+    //  Updates all components of the entity.
     public void update() {
         // Method body intentionally left empty
+        for (Component component : components) {
+            component.update(); // Update each component
+        }
+        if (movementStrategy != null) {
+            movementStrategy.move(this); // Apply the movement strategy
+        }
     }
 
     /**
@@ -59,7 +101,14 @@ public abstract class Entity {
      *
      * @param graphics The graphics context to render on.
      */
+
+    //Renders the entity using its RenderComponent. 
+    // @param graphics The graphics context to render on.
     public void render(Graphics graphics) {
         // Method body intentionally left empty
+        RenderComponent renderComponent = getComponent(RenderComponent.class);
+        if (renderComponent != null) {
+            renderComponent.render(graphics); // Render the entity using the RenderComponent
+        }
     }
 }

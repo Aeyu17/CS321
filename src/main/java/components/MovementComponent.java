@@ -1,31 +1,32 @@
 package components;
 
 import java.awt.Point;
+import entities.Entity;
+import game.InputHandler;
+import utilities.KeyInput;
 
 /**
  * Manages position and velocity of an entity.
  */
 public class MovementComponent implements Component {
 
-    /**
-     * Sets the velocity of the entity.
-     *
-     * @param dx The velocity in the x-direction.
-     * @param dy The velocity in the y-direction.
-     */
-    public void setVelocity(int dx, int dy) {
-        // Method body intentionally left empty
+    private Point position;
+    private final int velocity = 5;
+    private Entity parentEntity;
+    private InputHandler inputHandler;
+            
+    public MovementComponent(){
+        this.position = new Point(0,0);
     }
-
+    
     /**
-     * Gets the current velocity of the entity.
-     *
-     * @return The velocity as a Point object.
+     * Sets the InputHandler for handling key inputs
      */
-    public Point getVelocity() {
-        return null; // Placeholder return
+    
+    public void setInputHandler(InputHandler inputhandler){
+        this.inputHandler = inputhandler;
     }
-
+    
     /**
      * Sets the position of the entity.
      *
@@ -33,7 +34,7 @@ public class MovementComponent implements Component {
      * @param y The y-coordinate.
      */
     public void setPosition(int x, int y) {
-        // Method body intentionally left empty
+        this.position = new Point(x,y);
     }
 
     /**
@@ -42,7 +43,7 @@ public class MovementComponent implements Component {
      * @return The position as a Point object.
      */
     public Point getPosition() {
-        return null; // Placeholder return
+        return this.position;
     }
 
     /**
@@ -50,7 +51,15 @@ public class MovementComponent implements Component {
      */
     @Override
     public void update() {
-        // Method body intentionally left empty
+        if(inputHandler.isLeftPressed()){
+            this.position.x-=velocity;
+            System.out.println("X: " + position.x);
+        }
+        if(inputHandler.isRightPressed()){
+            this.position.x+=velocity;
+            System.out.println("X: " + position.x);
+        }
+        // still need to add case for space bar but will require collision detection
     }
 
     /**
@@ -59,7 +68,7 @@ public class MovementComponent implements Component {
      * @param entity The parent entity.
      */
     @Override
-    public void setEntity(entities.Entity entity) {
-        // Method body intentionally left empty
+    public void setEntity(Entity entity) {
+        this.parentEntity = entity;
     }
 }
